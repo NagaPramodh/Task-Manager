@@ -14,7 +14,6 @@ import { useDispatch } from "react-redux";
 import { addUser, deleteUser, updateUser } from "../redux/taskSlice";
 import { taskData } from "../data/taskData";
 import Items from "./items";
-import validateEmail from "./email";
 import "../App.css";
 
 const TaskList = ({ propCurrentItems }) => {
@@ -35,9 +34,9 @@ const TaskList = ({ propCurrentItems }) => {
     if (userInput !== "") {
       const newItem = {
         id: Math.random(),
-        value: userInput,
-        email: userEmail,
-        role: userRole,
+        title: userInput,
+        description: userEmail,
+        priority: userRole,
       };
       dispatch(addUser(newItem));
       setList([...list, newItem]);
@@ -73,10 +72,11 @@ const TaskList = ({ propCurrentItems }) => {
   const handleSave = () => {
     const updatedItem = {
       id: propCurrentItems[editedIndex].id,
-      value: userInput || propCurrentItems[editedIndex].title,
-      email: userEmail || propCurrentItems[editedIndex].description,
-      role: userRole || propCurrentItems[editedIndex].priority,
+      title: userInput || propCurrentItems[editedIndex].title,
+      description: userEmail || propCurrentItems[editedIndex].description,
+      priority: userRole || propCurrentItems[editedIndex].priority,
     };
+    console.log(updatedItem, "updatedItem");
     dispatch(updateUser(updatedItem));
     setUserInput("");
     setUserEmail("");
@@ -210,9 +210,9 @@ const TaskList = ({ propCurrentItems }) => {
             value={userRole}
             onChange={(e) => setUserRole(e.target.value)}
           />
-          {!isValidEmail && (
+          {/* {!isValidEmail && (
             <p style={{ color: "red" }}>Please enter a valid email address</p>
-          )}
+          )} */}
         </Modal.Body>
         <Modal.Footer>
           <Button
