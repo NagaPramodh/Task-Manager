@@ -1,0 +1,36 @@
+/* user-details page */
+.user-details-card {
+  margin: 10%;
+}
+
+/* items page  */
+.user-item-list-group {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.user-item {
+  width: 100%;
+}
+.user-item-link {
+  color: black;
+}
+
+/* pagination-page */
+.pagination {
+  margin-top: 10%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+/* userList Page  */
+.add-user {
+  font-size: larger;
+}
+
+.label-create-item {
+  font-size: medium;
+  font-style: normal;
+}
